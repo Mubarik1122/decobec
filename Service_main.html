@@ -1,0 +1,1657 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="initial-scale=1, width=device-width" />
+    
+        <link rel="stylesheet" href="./global.css" />
+        <link rel="stylesheet" href="./index.css" />
+        
+        <link rel="stylesheet" href="./style.css" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap"
+        />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+        />
+        <style>
+          ::-webkit-scrollbar {
+      width: 4px;
+      border: 1px solid #d5d5d5;
+    }
+    
+    ::-webkit-scrollbar-track {
+      border-radius: 0;
+      background: #eeeeee;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      border-radius: 0;
+      background: #b0b0b0;
+    }
+    ::-webkit-scrollbar {
+      height: 4px;             
+      width: 4px;              
+      border: 1px solid #d5d5d5;
+    }
+        </style>
+           
+<!-- pics hover style -->
+    <style>
+        .container {
+          position: relative;
+          /* width: 50%; */
+        }
+        
+        .image {
+          display: block;
+          width: 100%;
+          height: auto;
+        }
+        
+        .overlay {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 100%;
+          width: 100%;
+          opacity: 0;
+          transition: .5s ease;
+          background-color: black;
+        }
+        
+        .container:hover .overlay {
+          opacity: 0.5;
+        }
+        
+        .text {
+          color: white;
+          font-size: 20px;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+          text-align: center;
+        }
+        </style>
+  
+  <!-- dropdown sec -->
+  <style>
+    /* CSS for Dropdown Functionality */
+    .dropdown-content {
+      display: none; /* Initially hide the dropdown content */
+    }
+    
+    .arrow-icon {
+      transition: transform 0.3s ease;
+    }
+    
+    .arrow-icon.open {
+      transform: rotate(180deg); /* Rotate the arrow when the dropdown is open */
+    }
+    
+    .les-tapes-du-projet {
+      display: flex;
+      width: 100%;
+    }
+    
+    .decobec-website-icon-rencontre {
+      width: 100px;
+      height: 77px;
+    }
+    
+    .step-details {
+      display: flex;
+    }
+    .main_wrapper{
+      width: 100%;
+      display: flex;
+    }
+    .steps-instance-wrapper-wrapper{
+      width: 70%;
+    }
+    .drop_btn{
+      align-self: center;
+      margin-left: 10%;
+    }
+    .drop_btn button{
+      background: #00309B;
+      color: white;
+      font-size: 20px;
+      padding: 5px 18px;
+    }
+    </style>
+  
+  <script>
+    function toggleDropdown(id) {
+      const content = document.getElementById(id);
+      const arrow = content.previousElementSibling.querySelector('.arrow-icon');
+    
+      if (content.style.display === "none" || !content.style.display) {
+          content.style.display = "block";
+          arrow.classList.add('open');
+      } else {
+          content.style.display = "none";
+          arrow.classList.remove('open');
+      }
+    }
+    </script>
+  
+  
+  <!-- flip sec -->
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.5;
+        color: #333;
+    }
+    .container {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        max-width: 800px;
+        margin: auto;
+        font-size: 20px;
+        width: 100%;
+        padding-top: 0px;
+        padding-bottom: 10px;
+    }
+    .left-section {
+        width: 40%;
+    }
+    .left-section div {
+        border-bottom: 1px solid blue;
+        display: flex;
+        justify-content: space-between;
+    }
+    .right-section {
+        width: 50%;
+        font-size: 15px;
+    }
+    .right-section div {
+        border-bottom: 1px solid blue;
+    }
+    .left-section div, .right-section div {
+        margin-bottom: 10px;
+        cursor: pointer;
+        padding: 5px;
+        transition: background-color 0.3s;
+    }
+    .left-section div:hover {
+        background-color: #f0f0f0;
+    }
+    .right-section div {
+        display: flex;
+        justify-content: space-between;
+    }
+    .active {
+        font-weight: bold;
+        color: #3363CF;
+    }
+    .right-section div span:nth-child(2) {
+        color: #3363CF;
+    }
+    .right-section #total_amm span{
+        font-weight: bold;
+    }
+  </style>
+  
+  <script>
+    function showDetails(index) {
+        const content = [
+            // Économique
+            {
+                details: [
+                    {label: "Démolition", value: "2 000 $"},
+                    {label: "Plomberie", value: "2 800 $"},
+                    {label: "Électricité", value: "2 200 $"},
+                    {label: "Rénovation de plancher", value: "2 200 $"},
+                    {label: "Douche & installation", value: "5 800 $ (pré-moulés)"},
+                    {label: "Toilette & installation", value: "700 $"},
+                    {label: "Bain & installation", value: "s/o"},
+                    {label: "Meuble-lavabo & installation", value: "1 300 $"},
+                    {label: "Fonds de réserve (imprévus)", value: "1 500 $"},
+                    {label: "Total", value: "18 500 $+"}
+                ],
+                total: "18 500 $+"
+            },
+            // Entrée de gamme
+            {
+                details: [
+                    {label: "Démolition", value: "2 200 $"},
+                    {label: "Plomberie", value: "4 000 $"},
+                    {label: "Électricité", value: "2 400 $"},
+                    {label: "Rénovation de plancher", value: "3 000 $"},
+                    {label: "Douche & installation", value: "6 000 $ (standard)"},
+                    {label: "Toilette & installation", value: "1000 $"},
+                    {label: "Bain & installation", value: "2 000 $"},
+                    {label: "Meuble-lavabo & installation", value: "1 500 $"},
+                    {label: "Fonds de réserve (imprévus)", value: "2 000 $"},
+                    {label: "Total", value: "24 000 $+"}
+                ],
+                total: "24 000 $+"
+            },
+            // Milieu de gamme
+            {
+                details: [
+                    {label: "Démolition", value: "3 000 $"},
+                    {label: "Plomberie", value: "5 000 $"},
+                    {label: "Électricité", value: "2 500 $"},
+                    {label: "Rénovation de plancher", value: "3 500 $"},
+                    {label: "Douche & installation", value: "6 500 $ (high-quality)"},
+                    {label: "Toilette & installation", value: "1 500 $"},
+                    {label: "Bain & installation", value: "2 800 $"},
+                    {label: "Meuble-lavabo & installation", value: "2 500 $"},
+                    {label: "Fonds de réserve (imprévus)", value: "2 500 $"},
+                    {label: "Total", value: "29 800 $+"}
+                ],
+                total: "29 800 $+"
+            },
+            // Haut de gamme
+            {
+                details: [
+                    {label: "Démolition", value: "3 000 $"},
+                    {label: "Plomberie", value: "6 000 $"},
+                    {label: "Électricité", value: "3 000 $"},
+                    {label: "Rénovation de plancher", value: "4 000 $"},
+                    {label: "Douche & installation", value: "7 000 $ (luxury)"},
+                    {label: "Toilette & installation", value: "2 400 $"},
+                    {label: "Bain & installation", value: "3 000 $"},
+                    {label: "Meuble-lavabo & installation", value: "3 000 $"},
+                    {label: "Fonds de réserve (imprévus)", value: "3 500 $"},
+                    {label: "Total", value: "35 000 $+"}
+                ],
+                total: "35 000 $+"
+            },
+            // Prestige
+            {
+                details: [
+                    {label: "Démolition", value: "5 500 $"},
+                    {label: "Plomberie", value: "8 000 $"},
+                    {label: "Électricité", value: "4 500 $"},
+                    {label: "Rénovation de plancher", value: "6 500 $"},
+                    {label: "Douche & installation", value: "10 500 $ (custom)"},
+                    {label: "Toilette & installation", value: "4 000 $"},
+                    {label: "Bain & installation", value: "6 000 $"},
+                    {label: "Meuble-lavabo & installation", value: "5 000 $"},
+                    {label: "Fonds de réserve (imprévus)", value: "4 000 $"},
+                    {label: "Total", value: "54 000 $+"}
+                ],
+                total: "54 000 $+"
+            }
+        ];
+  
+        // Update the right section content
+        const rightSection = document.getElementById('detail-content');
+        rightSection.innerHTML = '';
+  
+        content[index].details.forEach(item => {
+            const row = document.createElement('div');
+            const label = document.createElement('span');
+            const value = document.createElement('span');
+  
+            label.textContent = item.label;
+            value.textContent = item.value;
+  
+            row.appendChild(label);
+            row.appendChild(value);
+            rightSection.appendChild(row);
+        });
+  
+        // Add active class to selected item and update the total cost on the left side
+        const items = document.querySelectorAll('.left-section div');
+        items.forEach((item, idx) => {
+            const totalLabel = item.querySelector('span');
+            if (idx === index) {
+                item.classList.add('active');
+                totalLabel.textContent = content[index].total;
+            } else {
+                item.classList.remove('active');
+                totalLabel.textContent = '';
+            }
+        });
+    }
+  </script>
+  
+  
+  <!-- checkbox section -->
+  <style>
+    .checkbox{
+      display: flex;
+    }
+    .checkbox-label{
+      color: white;
+      font-size: 14px;
+    }
+  </style>
+      </head>
+  <body>
+    <div class="home">
+      <section class="hero-section-wrapper">
+        <div class="hero-section">
+          <img
+            class="hero-image-cle-en-main-1-icon"
+            alt=""
+            src="./public/hero-image-cleenmain-1@2x.png"
+          />
+
+          <header class="product-links-wrapper">
+            <div class="product-links">
+              <div class="product-items">
+                <a class="nos-produits">Nos produits</a>
+              </div>
+              <div class="product-items1">
+                <a class="showrooms">Showrooms</a>
+              </div>
+               <a href="/"><img
+              class="decobec-logo-icon"
+              loading="lazy"
+              alt=""
+              src="./public/decobec-logo@2x.png"
+            /></a>
+
+              <div class="product-items2">
+                
+              <a class="cl-en-main" href="/Service_main.html">Clé en main</a>
+              </div>
+              <div class="product-items3">
+                <a class="service-design">Service design</a>
+              </div>
+            </div>
+          </header>
+          <div class="hero-section-content">
+            <div class="vous-cherchez-container">
+              <span class="vous-cherchez-container1">
+                <p class="vous-cherchez">
+                  Vous cherchez à rénover  votre salle de bain en toute sérénité
+                  ?
+                </p>
+                <p class="optez-pour-un-vrai-service-cl">
+                  <span>
+                    <span class="optez-pour-un">Optez pour un </span>
+                    <b class="vrai">VRAI </b>
+                    <span>service clé en main</span>
+                  </span>
+                </p>
+                <p class="demandez-une-soumission-gratui">
+                  <b>Demandez une soumission gratuite dès maintenant !</b>
+                </p>
+              </span>
+            </div>
+            <form class="demander-une-soumission">
+              <div class="quote-button-wrapper">
+                <div class="quote-button-inner">
+                  <div class="demander-une-soumission1">
+                    Demander une soumission
+                  </div>
+                </div>
+              </div>
+              <div class="form-fields">
+                <div class="form">
+                  <div class="numro-de-tlphone">Nom*</div>
+                  <div class="phone-labels">
+                    <input class="de-tlphone" placeholder="Nom" type="text" />
+                  </div>
+                </div>
+                <div class="form1">
+                  <div class="numro-de-tlphone1">Numéro de téléphone*</div>
+                  <div class="de-tlphone-wrapper">
+                    <input
+                      class="de-tlphone1"
+                      placeholder="# de téléphone"
+                      type="text"
+                    />
+                  </div>
+                </div>
+                <div class="form2">
+                  <div class="numro-de-tlphone2">Code postal</div>
+                  <div class="de-tlphone-container">
+                    <input
+                      class="de-tlphone2"
+                      placeholder="Code postal"
+                      type="text"
+                    />
+                  </div>
+                </div>
+                <div class="form3">
+                  <div class="numro-de-tlphone3">Courriel</div>
+                  <div class="de-tlphone-frame">
+                    <input
+                      class="de-tlphone3"
+                      placeholder="Adresse courriel"
+                      type="text"
+                    />
+                  </div>
+                </div>
+                <div class="form4">
+                  <div class="numro-de-tlphone4"></div>
+                  <div class="frame-div">
+                    <div class="de-tlphone4">Adresse courriel</div>
+                  </div>
+                </div>
+              </div>
+              <button class="bouton-envoyer-blanc-soumis">
+                <div class="soumettre">Soumettre</div>
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+      <section class="specialty">
+        <div class="cest-notre-spcialit-parent">
+          <h1 class="cest-notre-spcialit">
+            <p class="cest-notre">C’est notre</p>
+            <p class="spcialit">spécialité</p>
+          </h1>
+          <!-- <div class="frame-child"></div> -->
+          <div class="specialty-content">
+            <div class="chez-decobec-vous">
+              Chez Decobec, vous bénéficiez d'un service clé en main pour la
+              rénovation de vos salles de bain et cuisines. Nous vous
+              déchargeons de tout, de la conception à la réalisation, pour que
+              vous puissiez profiter d'une expérience sans souci. Grâce à notre
+              expertise et notre attention aux détails, vos espaces seront
+              transformés en véritables havres de paix, à la fois fonctionnels
+              et esthétiques, répondant parfaitement à vos besoins et attentes.
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="project-steps">
+        <div class="steps-heading">
+          
+
+
+          <!-- new sec -->
+          <section class="project-steps">
+            <div class="steps-heading">
+                <h1 class="les-tapes-du">les étapes du projet</h1>
+                
+                <div class="main_wrapper">
+                <div class="steps-instance-wrapper-wrapper">
+                    <div class="steps-instance-wrapper">
+                        <div class="les-tapes-du-projet-section">
+                            <!-- Step 1 -->
+                            <div class="les-tapes-du-projet">
+                                <img class="decobec-website-icon-rencontre" alt="" src="./public/decobec-website-icon-rencontre-initiale@2x.png">
+                                <div class="step-content">
+                                    <div class="step-details" onclick="toggleDropdown('step1')">
+                                        <div class="contact-initial-et">
+                                            Contact initial et consultation gratuite
+                                        </div>
+                                        <img class="step-details-child arrow-icon" alt="" src="./public/arrow-1@2x.png">
+                                    </div>
+                                    <div id="step1" class="lors-de-notre-container dropdown-content">
+                                        <span class="lors-de-notre-container1">
+                                            <p class="lors-de-notre">
+                                                Lors de notre premier contact, nous prenons le temps de discuter en détail de votre projet, vos besoins et de vos attentes. Nous organisons une visite sur site pour évaluer l'état actuel de votre espace et comprendre votre vision.
+                                            </p>
+                                            <p class="cette-consultation-initiale">
+                                                Cette consultation initiale est essentielle pour établir une base de confiance et pour nous permettre de vous proposer des solutions personnalisées qui répondent parfaitement et aussi bien à vos exigences qu’à votre budget.
+                                            </p>
+                                            <p class="lissue-de-cette">
+                                                À l’issue de cette étape, nous serons en mesure de vous fournir une soumission détaillée pour vos travaux, incluant les matériaux de construction ainsi qu’une estimation pour le coût de vos équipements et votre mobilier afin que vous ayez une idée globale du budget nécessaire pour la réalisation de votre projet.
+                                            </p>
+                                        </span>
+                                    </div>
+                                    <div class="step-content-child"></div>
+                                </div>
+                            </div>
+                            <!-- Step 2 -->
+                            <div class="les-tapes-du-projet">
+                                <img class="decobec-website-icon-rencontre" alt="" src="./public/decobec-website-icon-rencontre-initiale-1@2x.png">
+                                <div class="step-content">
+                                    <div class="step-details" onclick="toggleDropdown('step2')">
+                                        <div class="contact-initial-et">
+                                            Conception et planification
+                                        </div>
+                                        <img class="step-details-child arrow-icon" alt="" src="./public/arrow-1@2x.png">
+                                    </div>
+                                    <div id="step2" class="lors-de-notre-container dropdown-content">
+                                        <span class="lors-de-notre-container1">
+                                            <p class="lors-de-notre">
+                                              Une fois le projet estimé et que le budget vous convient, nous organisons une rencontre avec l'une de nos designer d'intérieur afin qu'elle puisse vous élaborer un design correspondant à vos envies et vos besoins.<br/><br/>
+En collaboration avec notre équipe de designers, de graphistes et le chargé de projet en construction qui vous est attitré, celle-ci prépare un plan détaillé, incluant des designs personnalisés et des sélections de matériaux et de finitions qui correspondent à votre style.<br/><br/>
+Nous vous présentons une maquette de votre projet final pour validation. Cette étape impliquant de nombreux intervenants chez Decobec, qui assure que chaque détail soit pris en compte et que vous soyez pleinement satisfait avant le début des travaux, nécessite un dépôt minimal qui sera déduit de votre facture.       </p>
+                                            <!-- <p class="cette-consultation-initiale">
+                                                Nous prenons en compte chaque détail, des matériaux aux équipements, pour garantir un résultat final qui dépasse vos attentes.
+                                            </p>
+                                            <p class="lissue-de-cette">
+                                                Vous recevrez une estimation des coûts et un calendrier de réalisation.
+                                            </p> -->
+                                        </span>
+                                    </div>
+                                    <div class="step-content-child"></div>
+                                </div>
+                            </div>
+                            <!-- Step 3 -->
+                            <div class="les-tapes-du-projet">
+                                <img class="decobec-website-icon-rencontre" alt="" src="./public/decobec-website-icon-rencontre-initiale-2@2x.png">
+                                <div class="step-content">
+                                    <div class="step-details" onclick="toggleDropdown('step3')">
+                                        <div class="contact-initial-et">
+                                          Préparation et gestion des équipements
+                                        </div>
+                                        <img class="step-details-child arrow-icon" alt="" src="./public/arrow-1@2x.png">
+                                    </div>
+                                    <div id="step3" class="lors-de-notre-container dropdown-content">
+                                        <span class="lors-de-notre-container1">
+                                            <p class="lors-de-notre">
+                                              Chez Decobec, nous veillons à ce que tous les
+                                              équipements de salle de bain et de cuisine nécessaires soient en stock et prêts à temps. Nous nous occupons de la livraison directe des équipements sur le chantier, en garantissant leur disponibilité au moment opportun. En cas de défectuosité ou d'imprévu, nous gérons
+                                              rapidement la situation, vous évitant tout stress et vous assurant une tranquillité d'esprit tout au long du projet.                                            </p>
+                                            <!-- <p class="cette-consultation-initiale">
+                                                Nous vous tenons informés à chaque étape et sommes disponibles pour répondre à vos questions.
+                                            </p>
+                                            <p class="lissue-de-cette">
+                                                À la fin des travaux, nous effectuons une inspection finale pour garantir votre satisfaction totale.
+                                            </p> -->
+                                        </span>
+                                    </div>
+                                    <div class="step-content-child"></div>
+                                </div>
+                            </div>
+                           
+                            <!-- Step 5 -->
+                            <div class="les-tapes-du-projet">
+                                <img class="decobec-website-icon-rencontre" alt="" src="./public/decobec-website-icon-rencontre-initiale-3@2x.png">
+                                <div class="step-content">
+                                    <div class="step-details" onclick="toggleDropdown('step5')">
+                                        <div class="contact-initial-et">
+                                          Gestion et coordination du projet
+                                        </div>
+                                        <img class="step-details-child arrow-icon" alt="" src="./public/arrow-1@2x.png">
+                                    </div>
+                                    <div id="step5" class="lors-de-notre-container dropdown-content">
+                                        <span class="lors-de-notre-container1">
+                                            <p class="lors-de-notre">
+                                              La gestion et la coordination de votre projet sont entre les mains de nos experts. Un de nos chargés de projet vous est attitré pour planifier minutieusement chaque étape des travaux.<br/><br/>
+                                              Nous travaillons exclusivement avec nos équipes internes, ce qui nous permet de contrôler la qualité et la cohérence de chaque intervention. Votre chargé de projet coordonne les équipes et s'assure que tous les intervenants nécessaires sont disponibles au bon moment.<br/><br/>
+                                              Nous vous tenons informé de l'avancement régulier et du début de chaque étape. Notre objectif est de minimiser les perturbations et de garantir une exécution fluide, tout en respectant les délais convenus.                                            </p>
+                                            <!-- <p class="cette-consultation-initiale">
+                                                Nous offrons un service après-vente complet pour garantir que vous êtes entièrement satisfait de votre investissement.
+                                            </p>
+                                            <p class="lissue-de-cette">
+                                                Votre feedback est important pour nous et nous en tenons compte pour améliorer nos futurs projets.
+                                            </p> -->
+                                        </span>
+                                    </div>
+                                    <div class="step-content-child"></div>
+                                </div>
+                            </div>
+                            <!-- Step 6 -->
+                            <div class="les-tapes-du-projet">
+                                <img class="decobec-website-icon-rencontre" alt="" src="./public/decobec-website-icon-rencontre-initiale-4@2x.png">
+                                <div class="step-content">
+                                    <div class="step-details" onclick="toggleDropdown('step6')">
+                                        <div class="contact-initial-et">
+                                          Exécution des travaux
+                                        </div>
+                                        <img class="step-details-child arrow-icon" alt="" src="./public/arrow-1@2x.png">
+                                    </div>
+                                    <div id="step6" class="lors-de-notre-container dropdown-content">
+                                        <span class="lors-de-notre-container1">
+                                            <p class="lors-de-notre">
+                                              Nos artisans qualifiés commencent par la démolition et la préparation du site, suivies de l'installation des nouvelles structures. Nous nous concentrons sur chaque détail, de l'agencement des meubles à la pose des finitions, pour assurer un résultat impeccable. Notre attention méticuleuse à la qualité de l'exécution vous garantit un espace rénové à la hauteur de vos attentes.                                            </p>
+                                            <!-- <p class="cette-consultation-initiale">
+                                                Votre témoignage est précieux et nous aide à constamment améliorer nos services.
+                                            </p>
+                                            <p class="lissue-de-cette">
+                                                Nous espérons que vous serez satisfait du résultat final et que vous n'hésiterez pas à recommander nos services.
+                                            </p> -->
+                                        </span>
+                                    </div>
+                                    <div class="step-content-child"></div>
+                                </div>
+                            </div>
+
+
+                             <!-- Step 4 -->
+                             <div class="les-tapes-du-projet">
+                              <img class="decobec-website-icon-rencontre" alt="" src="./public/decobec-website-icon-rencontre-initiale-5@2x.png">
+                              <div class="step-content">
+                                  <div class="step-details" onclick="toggleDropdown('step4')">
+                                      <div class="contact-initial-et">
+                                        Inspection et livraison finale
+                                      </div>
+                                      <img class="step-details-child arrow-icon" alt="" src="./public/arrow-1@2x.png">
+                                  </div>
+                                  <div id="step4" class="lors-de-notre-container dropdown-content">
+                                      <span class="lors-de-notre-container1">
+                                          <p class="lors-de-notre">
+                                            Avant la livraison finale, nous effectuons une inspection rigoureuse pour nous assurer que tous les travaux ont été réalisés selon nos standards élevés de qualité. Nous vous présentons ensuite le projet terminé tout en nous assurant de votre entière satisfaction. Enfin, nous vous remettons les clés de votre nouvel espace, prêt à être utilisé. Nous restons à votre disposition pour toute question ou ajustement après la livraison, garantissant ainsi votre satisfaction complète.                                          </p>
+                                          <!-- <p class="cette-consultation-initiale">
+                                              Nous vous accompagnons dans la réception des travaux, en vous expliquant les différentes fonctionnalités de votre nouvel espace.
+                                          </p>
+                                          <p class="lissue-de-cette">
+                                              Toute remarque est prise en compte pour garantir votre entière satisfaction.
+                                          </p> -->
+                                      </span>
+                                  </div>
+                                  <div class="step-content-child"></div>
+                              </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="drop_btn">
+                  <button>En savoir plus</button>
+                </div>
+                </div>
+            </div>
+          </section>
+          
+
+
+
+          <!-- <div class="steps-instance-wrapper-wrapper">
+            <div class="steps-instance-wrapper">
+              <div class="les-tapes-du-projet-section">
+                <div class="les-tapes-du-projet">
+                  <img
+                    class="decobec-website-icon-rencontre"
+                    alt=""
+                    src="./public/decobec-website-icon-rencontre-initiale@2x.png"
+                  />
+
+                  <div class="step-content">
+                    <div class="step-details">
+                      <div class="contact-initial-et">
+                        Contact initial et consultation gratuite
+                      </div>
+                      <img
+                        class="step-details-child"
+                        alt=""
+                        src="./public/arrow-1@2x.png"
+                      />
+                    </div>
+                    <div class="lors-de-notre-container">
+                      <span class="lors-de-notre-container1">
+                        <p class="lors-de-notre">
+                          Lors de notre premier contact, nous prenons le temps
+                          de discuter en détail de votre projet, vos besoins et
+                          de vos attentes. Nous organisons une visite sur site
+                          pour évaluer l'état actuel de votre espace et
+                          comprendre votre vision.
+                        </p>
+                        <p class="cette-consultation-initiale">
+                          Cette consultation initiale est essentielle pour
+                          établir une base de confiance et pour nous permettre
+                          de vous proposer des solutions personnalisées qui
+                          répondent parfaitement et aussi bien à vos exigences
+                          qu’à votre budget.
+                        </p>
+                        <p class="lissue-de-cette">
+                          À l’issue de cette étape, nous serons en mesure de
+                          vous fournir une soumission détaillée pour vos
+                          travaux, incluant les matériaux de construction ainsi
+                          qu’une estimation pour le coût de vos équipements et
+                          votre mobilier afin que vous ayez une idée globale du
+                          budget nécessaire pour la réalisation de votre projet.
+                        </p>
+                      </span>
+                    </div>
+                    <div class="step-content-child"></div>
+                  </div>
+                </div>
+                <div class="les-tapes-du-projet1">
+                  <img
+                    class="decobec-website-icon-rencontre1"
+                    alt=""
+                    src="./public/decobec-website-icon-rencontre-initiale-1@2x.png"
+                  />
+
+                  <div class="frame-parent">
+                    <div class="contact-initial-et-consultatio-parent">
+                      <div class="contact-initial-et1">
+                        Conception et planification
+                      </div>
+                      <img
+                        class="frame-item"
+                        alt=""
+                        src="./public/arrow-1-1@2x.png"
+                      />
+                    </div>
+                    <div class="lors-de-notre-container2">
+                      <span class="lors-de-notre-container3">
+                        <p class="une-fois-le">
+                          Une fois le projet estimé et que le budget vous
+                          convient, nous organisons une rencontre avec l’une de
+                          nos designer d’intérieur afin qu’elle puisse vous
+                          élaborer un design correspondant à vos envies et vos
+                          besoins.
+                        </p>
+                        <p class="en-collaboration-avec">
+                          En collaboration avec notre équipe de designers, de
+                          graphistes et le chargé de projet en construction qui
+                          vous est attitré, celle-ci prépare un plan détaillé,
+                          incluant des designs personnalisés et des sélections
+                          de matériaux et de finitions qui correspondent à votre
+                          style.
+                        </p>
+                        <p class="nous-vous-prsentons">
+                          Nous vous présentons une maquette de votre projet
+                          final pour validation. Cette étape impliquant de
+                          nombreux intervenants chez Decobec, qui assure que
+                          chaque détail soit pris en compte et que vous soyez
+                          pleinement satisfait avant le début des travaux,
+                          nécessite un dépôt minimal qui sera déduit de votre
+                          facture.
+                        </p>
+                      </span>
+                    </div>
+                    <div class="frame-inner"></div>
+                  </div>
+                </div>
+                <div class="les-tapes-du-projet2">
+                  <img
+                    class="decobec-website-icon-rencontre2"
+                    alt=""
+                    src="./public/decobec-website-icon-rencontre-initiale-2@2x.png"
+                  />
+
+                  <div class="frame-group">
+                    <div class="contact-initial-et-consultatio-group">
+                      <div class="contact-initial-et2">
+                        Préparation et gestion des équipements
+                      </div>
+                      <img
+                        class="arrow-icon"
+                        alt=""
+                        src="./public/arrow-1-2@2x.png"
+                      />
+                    </div>
+                    <div class="lors-de-notre1">
+                      Chez Decobec, nous veillons à ce que tous les équipements
+                      de salle de bain et de cuisine nécessaires soient en stock
+                      et prêts à temps. Nous nous occupons de la livraison
+                      directe des équipements sur le chantier, en garantissant
+                      leur disponibilité au moment opportun. En cas de
+                      défectuosité ou d'imprévu, nous gérons rapidement la
+                      situation, vous évitant tout stress et vous assurant une
+                      tranquillité d'esprit tout au long du projet.
+                    </div>
+                    <div class="line-div"></div>
+                  </div>
+                </div>
+                <div class="les-tapes-du-projet3">
+                  <img
+                    class="decobec-website-icon-rencontre3"
+                    alt=""
+                    src="./public/decobec-website-icon-rencontre-initiale-3@2x.png"
+                  />
+
+                  <div class="frame-container">
+                    <div class="contact-initial-et-consultatio-container">
+                      <div class="contact-initial-et3">
+                        Gestion et coordination du projet
+                      </div>
+                      <img
+                        class="frame-child1"
+                        alt=""
+                        src="./public/arrow-1-3@2x.png"
+                      />
+                    </div>
+                    <div class="lors-de-notre-container4">
+                      <p class="la-gestion-et">
+                        La gestion et la coordination de votre projet sont entre
+                        les mains de nos experts. Un de nos chargés de projet
+                        vous est attitré pour planifier minutieusement chaque
+                        étape des travaux.
+                      </p>
+                      <p class="nous-travaillons-exclusivement">
+                        Nous travaillons exclusivement avec nos équipes
+                        internes, ce qui nous permet de contrôler la qualité et
+                        la cohérence de chaque intervention. Votre chargé de
+                        projet coordonne les équipes et s'assure que tous les
+                        intervenants nécessaires sont disponibles au bon moment.
+                      </p>
+                      <p class="nous-vous-tenons">
+                        Nous vous tenons informé de l'avancement régulier et du
+                        début de chaque étape. Notre objectif est de minimiser
+                        les perturbations et de garantir une exécution fluide,
+                        tout en respectant les délais convenus.
+                      </p>
+                    </div>
+                    <div class="frame-child2"></div>
+                  </div>
+                </div>
+                <div class="les-tapes-du-projet4">
+                  <img
+                    class="decobec-website-icon-rencontre4"
+                    alt=""
+                    src="./public/decobec-website-icon-rencontre-initiale-4@2x.png"
+                  />
+
+                  <div class="frame-parent1">
+                    <div class="contact-initial-et-consultatio-parent1">
+                      <div class="contact-initial-et4">
+                        Exécution des travaux
+                      </div>
+                      <img
+                        class="frame-child3"
+                        alt=""
+                        src="./public/arrow-1-4@2x.png"
+                      />
+                    </div>
+                    <div class="lors-de-notre2">
+                      Nos artisans qualifiés commencent par la démolition et la
+                      préparation du site, suivies de l'installation des
+                      nouvelles structures. Nous nous concentrons sur chaque
+                      détail, de l'agencement des meubles à la pose des
+                      finitions, pour assurer un résultat impeccable. Notre
+                      attention méticuleuse à la qualité de l'exécution vous
+                      garantit un espace rénové à la hauteur de vos attentes.
+                    </div>
+                    <div class="frame-child4"></div>
+                  </div>
+                </div>
+                <div class="les-tapes-du-projet5">
+                  <img
+                    class="decobec-website-icon-rencontre5"
+                    alt=""
+                    src="./public/decobec-website-icon-rencontre-initiale-5@2x.png"
+                  />
+
+                  <div class="frame-parent2">
+                    <div class="contact-initial-et-consultatio-parent2">
+                      <div class="contact-initial-et5">
+                        Inspection et livraison finale
+                      </div>
+                      <img
+                        class="frame-child5"
+                        alt=""
+                        src="./public/arrow-1-5@2x.png"
+                      />
+                    </div>
+                    <div class="lors-de-notre3">
+                      Avant la livraison finale, nous effectuons une inspection
+                      rigoureuse pour nous assurer que tous les travaux ont été
+                      réalisés selon nos standards élevés de qualité. Nous vous
+                      présentons ensuite le projet terminé tout en nous assurant
+                      de votre entière satisfaction. Enfin, nous vous remettons
+                      les clés de votre nouvel espace, prêt à être utilisé. Nous
+                      restons à votre disposition pour toute question ou
+                      ajustement après la livraison, garantissant ainsi votre
+                      satisfaction complète.
+                    </div>
+                    <div class="frame-child6"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="schedule-button">
+                <button class="cta-blue-no-size-variation">
+                  <div class="prendre-rendez-vous">En savoir plus</div>
+                </button>
+              </div>
+            </div>
+          </div> -->
+
+
+
+        </div>
+      </section>
+      <section class="stats">
+        <div class="stats-banner">
+          <div class="stats-items">
+            <div class="jours-par-projet-container">
+              <p class="p">10</p>
+              <p class="jours-par-projet">jours par projet en moyenne</p>
+            </div>
+            <div class="quipes-dexperts-ddis-container">
+              <p class="p1">12</p>
+              <p class="quipes-dexperts-ddis">équipes d’experts dédiés</p>
+            </div>
+          </div>
+          <div class="stats-items1">
+            <div class="projets-raliss-par-container">
+              <p class="p2">40 +</p>
+              <p class="projets-raliss-par">projets réalisés par mois</p>
+            </div>
+            <div class="en-assurance-responsabilit-container">
+              <p class="p3">5 000 000</p>
+              <p class="en-assurance-responsabilit">
+                en assurance responsabilité
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="bg-gris">
+        <div class="bg-gris-child"></div>
+        <h1 class="votre-guichet-unique">
+          Votre guichet unique pour une expertise 360°
+        </h1>
+        <div class="gallery-ce-qui-nous-distingu-parent">
+          <div class="gallery-ce-qui-nous-distingu">
+            <div class="gallery-items">
+              <img
+                class="gallery-images-icon"
+                loading="lazy"
+                alt=""
+                src="./public/rectangle-2@2x.png"
+              />
+
+              <div class="gallery-descriptions">
+                <div class="des-quipements-de-container">
+                  <span class="des-quipements-de-container1">
+                    <p class="des-quipements-de-qualit-su">
+                      <b
+                        >DES ÉQUIPEMENTS  DE QUALITÉ SUPÉRIEURE  CONÇUS POUR
+                        VOUS</b
+                      >
+                    </p>
+                    <p class="en-tant-que">
+                      En tant que fabricant et détaillant, Decobec vous offre
+                      une gamme d’équipements de salle de bain et de cuisine de
+                      qualité supérieure, parfaitement adaptés à vos besoins et
+                      à votre style. Vous bénéficiez ainsi de produits durables
+                      et esthétiques, sans avoir à chercher ailleurs,
+                      simplifiant ainsi votre projet de rénovations.
+                    </p>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="gallery-items1">
+              <div class="des-espaces-qui-allient-beaut-wrapper">
+                <div class="des-espaces-qui-container">
+                  <p class="des-espaces-qui-allient-beaut">
+                    <b>DES ESPACES QUI ALLIENT BEAUTÉ ET PRATICITÉ</b>
+                  </p>
+                  <p class="nos-designers-dintrieur">
+                    Nos designers d'intérieur travaillent en étroite
+                    collaboration avec vous pour concevoir des espaces qui
+                    allient esthétisme et fonctionnalité. Vous profitez de
+                    solutions sur mesure, créées pour optimiser votre confort et
+                    répondre à vos goûts, transformant ainsi votre intérieur en
+                    un lieu harmonieux et pratique.
+                  </p>
+                </div>
+              </div>
+              <img
+                class="gallery-items-child"
+                alt=""
+                src="./public/rectangle-2-1@2x.png"
+              />
+            </div>
+            <div class="gallery-items2">
+              <img
+                class="gallery-items-item"
+                alt=""
+                src="./public/rectangle-2-2@2x.png"
+              />
+
+              <div class="une-execution-fluide-et-sans-wrapper">
+                <div class="une-execution-fluide-container">
+                  <p class="une-execution-fluide-et-sans">
+                    <b>UNE EXECUTION FLUIDE  ET SANS SOUCIS</b>
+                  </p>
+                  <p class="en-tant-quentrepreneur">
+                    En tant qu'entrepreneur général avec toutes
+                  </p>
+                  <p class="les-comptences-en">
+                    les compétences en interne, Decobec assure une coordination
+                    parfaite de votre projet de rénovation. Vous bénéficiez
+                    d'une exécution fluide, d'une qualité constante et du
+                    respect des délais, tout en minimisant les perturbations.
+                    Vous avez ainsi l’assurance d’un projet mené à bien sans
+                    stress, du début à la fin.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pricing">
+            <div class="guide-de-prix">
+              <h1 class="guide-de-prix-container">
+                <span>Guide de prix Pour UN </span>
+                <b>VRAI</b>
+                <span> CLÉ EN MAIN</span>
+              </h1>
+
+              <!-- flip section -->
+              <div class="container">
+                <div class="left-section" id="left-section">
+                    <div onclick="showDetails(0)">Économique <span></span></div>
+                    <div onclick="showDetails(1)">Entrée de gamme <span></span></div>
+                    <div onclick="showDetails(2)">Milieu de gamme <span></span></div>
+                    <div onclick="showDetails(3)">Haut de gamme <span></span></div>
+                    <div onclick="showDetails(4)">Prestige <span></span></div>
+                </div>
+                <div class="right-section" id="detail-content">
+                    <!-- Default content -->
+                    <div><span>Démolition</span><span>2 000 $</span></div>
+                    <div><span>Plomberie</span><span>2 800 $</span></div>
+                    <div><span>Électricité</span><span>2 200 $</span></div>
+                    <div><span>Rénovation de plancher</span><span>2 200 $</span></div>
+                    <div><span>Douche & installation</span><span>5 800 $ (pré-moulés)</span></div>
+                    <div><span>Toilette & installation</span><span>700 $</span></div>
+                    <div><span>Bain & installation</span><span>s/o</span></div>
+                    <div><span>Meuble-lavabo & installation</span><span>1 300 $</span></div>
+                    <div><span>Fonds de réserve (imprévus)</span><span>1 500 $</span></div>
+                    <div id="total_amm"><span>Total</span><span>18 500 $+</span></div>
+                </div>
+            </div>
+
+              <!-- <div class="guide-de-prix-cl-en-main">
+                <div class="table-rows">
+                  <div class="row-items">
+                    <div class="row-values">
+                      <div class="conomique">Économique</div>
+                    </div>
+                    <div class="row-items-child"></div>
+                  </div>
+                  <div class="row-items1">
+                    <div class="entre-de-gamme-wrapper">
+                      <div class="entre-de-gamme">Entrée de gamme</div>
+                    </div>
+                    <div class="row-items-item"></div>
+                  </div>
+                  <div class="row-items2">
+                    <div class="millieu-de-gamme-parent">
+                      <b class="millieu-de-gamme">Millieu de gamme</b>
+                      <b class="empty-cells">29 800 $+</b>
+                    </div>
+                    <div class="row-items-inner"></div>
+                  </div>
+                  <div class="row-items3">
+                    <div class="haut-de-gamme-wrapper">
+                      <div class="haut-de-gamme">Haut de gamme</div>
+                    </div>
+                    <div class="row-items-child1"></div>
+                  </div>
+                  <div class="row-items4">
+                    <input
+                      class="frame-input"
+                      placeholder="Prestige"
+                      type="text"
+                    />
+
+                    <div class="row-items-child2"></div>
+                  </div>
+                </div>
+                <div class="cost-items">
+                  <div class="cost-values">
+                    <div class="cost-details">
+                      <div class="dmolition">Démolition</div>
+                      <input
+                        class="cost-spaces"
+                        placeholder="3 000 $"
+                        type="text"
+                      />
+                    </div>
+                    <div class="cost-values-child"></div>
+                  </div>
+                  <div class="cost-values1">
+                    <div class="plomberie-parent">
+                      <div class="plomberie">Plomberie</div>
+                      <input class="input" placeholder="5 000 $" type="text" />
+                    </div>
+                    <div class="cost-values-item"></div>
+                  </div>
+                  <div class="cost-values2">
+                    <div class="lectricit-parent">
+                      <div class="lectricit">Électricité</div>
+                      <input class="input1" placeholder="2 500 $" type="text" />
+                    </div>
+                    <div class="cost-values-inner"></div>
+                  </div>
+                  <div class="cost-values3">
+                    <div class="rnovation-de-plancher-parent">
+                      <div class="rnovation-de-plancher">
+                        Rénovation de plancher
+                      </div>
+                      <input class="input2" placeholder="3 500 $" type="text" />
+                    </div>
+                    <div class="cost-values-child1"></div>
+                  </div>
+                  <div class="cost-values4">
+                    <div class="douche-installation-parent">
+                      <div class="douche-installation">
+                        Douche & installation
+                      </div>
+                      <input class="input3" placeholder="6 500 $" type="text" />
+                    </div>
+                    <div class="cost-values-child2"></div>
+                  </div>
+                  <div class="cost-values5">
+                    <div class="toilette-installation-parent">
+                      <div class="toilette-installation">
+                        Toilette & installation
+                      </div>
+                      <input class="input4" placeholder="1 500 $" type="text" />
+                    </div>
+                    <div class="cost-values-child3"></div>
+                  </div>
+                  <div class="cost-values6">
+                    <div class="bain-installation-parent">
+                      <div class="bain-installation">Bain & installation</div>
+                      <input class="input5" placeholder="2 800 $" type="text" />
+                    </div>
+                    <div class="cost-values-child4"></div>
+                  </div>
+                  <div class="cost-values7">
+                    <div class="meuble-lavabo-installation-parent">
+                      <div class="meuble-lavabo-installation">
+                        Meuble-lavabo & installation
+                      </div>
+                      <input class="input6" placeholder="2 500 $" type="text" />
+                    </div>
+                    <div class="cost-values-child5"></div>
+                  </div>
+                  <div class="cost-values8">
+                    <div class="fonds-de-rserve-imprvus-parent">
+                      <div class="fonds-de-rserve">
+                        Fonds de réserve (imprévus)
+                      </div>
+                      <div class="div">2 500 $</div>
+                    </div>
+                    <div class="cost-values-child6"></div>
+                  </div>
+                  <div class="total-row">
+                    <b class="total">Total</b>
+                    <b class="total-values">29 800 $+</b>
+                  </div>
+                </div>
+              </div> -->
+              <button class="cta-blue-no-size-variation1">
+                <div class="prendre-rendez-vous1">
+                  Obtenir une soumission gratuite
+                </div>
+              </button>
+              <div class="veuillez-noter-que-container">
+                <span>
+                  <p class="veuillez-noter-que-les-prix-in">
+                    <i class="veuillez-noter-que"
+                      >*Veuillez noter que les prix indiqués sont approximatifs
+                      pour une surface d'environ 80 pieds carrés (8 x 10).
+                    </i>
+                  </p>
+                  <p class="le-cot-total-des-rnovations">
+                    <span class="le-cot-total-des-rnovations1">
+                      <span
+                        >Le coût total des rénovations peut varier en fonction
+                        de divers facteurs, tels que le type de travaux à
+                        réaliser,
+                      </span>
+                    </span>
+                  </p>
+                  <p class="la-main-duvre-requise-les-m">
+                    <span class="la-main-duvre-requise-les-m1">
+                      <span
+                        >la main-d'œuvre requise, les matériaux choisis, les
+                        mesures de protection, les frais de démolition
+                      </span>
+                    </span>
+                  </p>
+                  <p class="ou-de-dplacement-des-lments">
+                    <span class="ou-de-dplacement-des-lments1">
+                      <span
+                        >ou de déplacement des éléments structurels, ainsi que
+                        les imprévus.</span
+                      >
+                    </span>
+                  </p>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="financing">
+        <div class="financeit-banner">
+          <div class="finance-logo">
+            <img
+              class="fit-product-reversed-rgb-1-icon"
+              loading="lazy"
+              alt=""
+              src="./public/fitproductreversedrgb-1@2x.png"
+            />
+          </div>
+          <div class="financement-disponible-en-container">
+            <span>
+              <p class="financement-disponible-en">
+                Financement disponible en magasin
+              </p>
+              <p class="prt-ouvert-allant">
+                Prêt ouvert allant jusqu’à 240 mois et remboursable sans
+                pénalité. Préqualifiaction sans impact sur votre dossier de
+                crédit.
+              </p>
+            </span>
+          </div>
+          <div class="prequalify-button">
+            <button class="cta-small-no-size-variatio">
+              <div class="prqualifiez-vous-maintenant">
+                Préqualifiez-vous maintenant
+              </div>
+            </button>
+          </div>
+        </div>
+      </section>
+      <section class="projects">
+        <div class="project-heading">
+          <h1 class="nos-ralisations">Nos réalisations</h1>
+        </div>
+        <div class="project-gallery">
+
+          <!-- new image -->
+
+          <div class="first_img_cont">
+
+            <div class="container">
+              <img src="./public/projet-simard@2x.png" alt="Avatar" class="image">
+              <div class="overlay">
+                <div class="text">Project Simard</div>
+              </div>         
+  
+            </div>
+  
+            <div class="container">
+              <img src="./public/projet-tboul@2x.png" alt="Avatar" class="image">
+              <div class="overlay">
+                <div class="text">Project Teboul</div>
+              </div>         
+  
+            </div>
+
+          </div>
+
+
+          <div class="sec_img_cont">
+
+            <div class="container">
+              <img src="./public/projet-bourr@2x.png" alt="Avatar" class="image">
+              <div class="overlay">
+                <div class="text">Project Bourre</div>
+              </div>         
+  
+            </div>
+  
+            <!-- <div class="container">
+              <img src="./public/projet-tboul@2x.png" alt="Avatar" class="image">
+              <div class="overlay">
+                <div class="text">Project Teboul</div>
+              </div>         
+  
+            </div> -->
+
+          </div>
+
+          <div class="third_img_cont">
+
+            <div class="container">
+              <img src="./public/projet-mass@2x.png" alt="Avatar" class="image">
+              <div class="overlay">
+                <div class="text">Project Masse</div>
+              </div>         
+  
+            </div>
+  
+            <div class="container">
+              <img src="./public/projet-hervieux@2x.png" alt="Avatar" class="image">
+              <div class="overlay">
+                <div class="text">Project Hervieux</div>
+              </div>         
+  
+            </div>
+
+          </div>
+
+
+          <div class="forth_img_cont">
+
+            <div class="container">
+              <img src="./public/projet-dion@2x.png" alt="Avatar" class="image">
+              <div class="overlay">
+                <div class="text">Project Dion</div>
+              </div>         
+  
+            </div>
+  
+            <div class="container">
+              <img src="./public/projet-vendette@2x.png" alt="Avatar" class="image">
+              <div class="overlay">
+                <div class="text">Project Vendette</div>
+              </div>         
+  
+            </div>
+
+          </div>
+
+          
+
+
+
+
+          <!-- <div class="project-items">
+            <img
+              class="projet-simard-icon"
+              loading="lazy"
+              alt=""
+              src="./public/projet-simard@2x.png"
+            />
+
+            <img
+              class="projet-tboul-icon"
+              loading="lazy"
+              alt=""
+              src="./public/projet-tboul@2x.png"
+            />
+          </div> -->
+          <img
+            class="projet-bourr-icon"
+            loading="lazy"
+            alt=""
+            src="./public/projet-bourr@2x.png"
+          />
+
+          <!-- <div class="project-items1">
+            <img
+              class="projet-mass-icon"
+              loading="lazy"
+              alt=""
+              src="./public/projet-mass@2x.png"
+            />
+
+            <img
+              class="projet-hervieux-icon"
+              loading="lazy"
+              alt=""
+              src="./public/projet-hervieux@2x.png"
+            />
+          </div> -->
+          <!-- <div class="project-items2">
+            <img
+              class="projet-dion-icon"
+              loading="lazy"
+              alt=""
+              src="./public/projet-dion@2x.png"
+            />
+
+            <img
+              class="projet-vendette-icon"
+              loading="lazy"
+              alt=""
+              src="./public/projet-vendette@2x.png"
+            />
+          </div> -->
+        </div>
+      </section>
+      <section class="end-note-wrapper">
+        <div class="end-note">
+          <div class="votre-projet-notre-expertise-container">
+            <p class="votre-projet">
+              <span class="votre">
+                <span class="votre1">Votre</span>
+                <span class="span"> </span>
+              </span>
+              <i class="projet">projet,</i>
+            </p>
+            <p class="notre-expertise">
+              <span class="notre">
+                <span class="notre1">notre</span>
+                <span class="span1"> </span>
+              </span>
+              <i class="expertise">expertise.</i>
+            </p>
+          </div>
+          <div class="div1">
+            <div class="contact-options">
+              <div class="contact-items">
+                <div class="cta-small-end-note-phone">
+                  <img
+                    class="phone-icon-blue-1"
+                    loading="lazy"
+                    alt=""
+                    src="./public/phone-icon-blue-1@2x.png"
+                  />
+
+                  <div class="email">514-543-2330</div>
+                </div>
+              </div>
+              <div class="contact-items1">
+                <div class="cta-small-end-note-email">
+                  <img
+                    class="phone-icon-blue-11"
+                    alt=""
+                    src="./public/phone-icon-blue-1-1@2x.png"
+                  />
+
+                  <div class="contactdecobeccom">contact@decobec.com</div>
+                </div>
+              </div>
+            </div>
+            <div class="en-choisissant-decobec-container">
+              <p class="en-choisissant-decobec">
+                En choisissant Decobec pour votre projet de rénovation,
+              </p>
+              <p class="vous-bnficiez-dun">
+                vous bénéficiez d’un accompagnement complet et de
+              </p>
+              <p class="la-tranquillit-desprit">
+                la tranquillité d’esprit, avec la certitude que chaque étape
+              </p>
+              <p class="est-gre-par">
+                est gérée par des professionnels dédiés à la réussite
+              </p>
+              <p class="de-votre-projet">
+                de votre projet. Demandez dès aujourd’hui une estimation
+              </p>
+              <p class="et-commencez">
+                et commencez à transformer vos espaces avec nous.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer class="pre-footer">
+        <form class="ready">
+          <b class="prt-passer">Prêt à passer à la prochaine étape?</b>
+          <div class="options-container">
+
+
+            <!-- checkbox sec -->
+            <div class="options">
+              <div class="aimeriez-vous-obtenir">Aimeriez-vous obtenir :</div>
+              <div class="buttons">
+                <label class="checkbox">
+                  <input type="checkbox" name="option" value="rendezvous_magasin">
+                  <!-- <img class="checkbox-icon" alt="" src="./public/group-1.svg" /> -->
+                  <div class="checkbox-label">Un rendez-vous en magasin</div>
+                </label>
+                <label class="checkbox">
+                  <input type="checkbox" name="option" value="rendezvous_designer">
+                  <!-- <img class="checkbox-icon" alt="" src="./public/group-1-1.svg" /> -->
+                  <div class="checkbox-label">Un rendez-vous avec un designer</div>
+                </label>
+                <label class="checkbox">
+                  <input type="checkbox" name="option" value="estimation_domicile">
+                  <!-- <img class="checkbox-icon" alt="" src="./public/group-1-2.svg" /> -->
+                  <div class="checkbox-label">Une estimation à domicile</div>
+                </label>
+                <label class="checkbox">
+                  <input type="checkbox" name="option" value="devis_meilleur_prix">
+                  <!-- <img class="checkbox-icon" alt="" src="./public/group-1.svg" /> -->
+                  <div class="checkbox-label">Un devis au meilleur prix</div>
+                </label>
+              </div>
+            </div>
+            
+            <!-- <div class="options">
+              <div class="aimeriez-vous-obtenir">Aimeriez-vous obtenir :</div>
+              <div class="buttons">
+                <div class="radiobutton">
+                  <img
+                    class="radiobutton-child"
+                    alt=""
+                    src="./public/group-1.svg"
+                  />
+
+                  <div class="radio-button">Un rendez-vous en magasin</div>
+                </div>
+                <div class="radiobutton1">
+                  <img
+                    class="radiobutton-item"
+                    alt=""
+                    src="./public/group-1-1.svg"
+                  />
+
+                  <div class="radio-button1">
+                    Un rendez-vous avec un designer
+                  </div>
+                </div>
+                <div class="radiobutton2">
+                  <img
+                    class="radiobutton-inner"
+                    alt=""
+                    src="./public/group-1-2.svg"
+                  />
+
+                  <div class="radio-button2">Une estimation à domicile</div>
+                </div>
+                <div class="radiobutton3">
+                  <img class="group-icon" alt="" src="./public/group-1.svg" />
+
+                  <div class="radio-button3">Un devis au meilleur prix</div>
+                </div>
+              </div>
+            </div> -->
+
+
+            <div class="fields">
+              <input class="fields1" placeholder="Prénom" type="text" />
+
+              <input class="fields2" placeholder="Nom" type="text" />
+
+              <input class="fields3" placeholder="Téléphone" type="text" />
+
+              <input class="fields4" placeholder="Courriel" type="text" />
+            </div>
+          </div>
+          <button class="cta-blue-no-size-variation2">
+            <div class="prendre-rendez-vous2">Obtenir un rendez-vous</div>
+          </button>
+        </form>
+      </footer>
+      <section class="footer-1440">
+        <div class="footer-container">
+          <div class="info">
+            <div class="propos-nous-connatre-service-container">
+              <p class="propos">
+                <b>À propos</b>
+              </p>
+              <p class="nous-connatre">Nous connaître</p>
+              <p class="service-cl-en">Service clé en main</p>
+              <p class="service-design1">Service design</p>
+              <p class="nous-contacter">Nous contacter</p>
+              <p class="foire-aux-questions">Foire aux questions</p>
+            </div>
+            <img
+              class="new-apchq-coul-1-icon"
+              loading="lazy"
+              alt=""
+              src="./public/newapchqcoul-1@2x.png"
+            />
+          </div>
+          <div class="liens-utiles-options-container">
+            <p class="liens-utiles">
+              <b>Liens utiles</b>
+            </p>
+            <p class="options-de-livraisons">
+              Options de livraisons & cueillete
+            </p>
+            <p class="politique-de-confidentialit">
+              Politique de confidentialité
+            </p>
+            <p class="conditions-dutilisation">Conditions d’utilisation</p>
+            <p class="politique-de-retours">Politique de retours</p>
+            <p class="politique-meilleur-prix">
+              Politique meilleur prix garantie
+            </p>
+          </div>
+          <div class="nos-produits-bains-douches-rob-container">
+            <p class="nos-produits1">
+              <b>Nos produits</b>
+            </p>
+            <p class="bains">Bains</p>
+            <p class="douches">Douches</p>
+            <p class="robinetterie">Robinetterie</p>
+            <p class="meubles-lavabos">Meubles & Lavabos</p>
+            <p class="miroir-pharmacies">Miroir & Pharmacies</p>
+            <p class="armoires-lingerie">Armoires à lingerie</p>
+            <p class="toilettes">Toilettes</p>
+          </div>
+          <div class="info1">
+            <div class="pour-nous-joindre-container">
+              <p class="pour-nous-joindre">
+                <b>Pour nous joindre</b>
+              </p>
+              <p class="contactdecobeccom1">contact@decobec.com</p>
+              <p class="terrebonne-514-405-4637">
+                <span class="terrebonne">Terrebonne : </span>
+                <a class="a" href="tel:+15144054637" target="_blank">
+                  <span class="span2">514-405-4637</span>
+                </a>
+              </p>
+              <p class="saint-hubert-450-445-4000">
+                <span class="saint-hubert">Saint-Hubert : </span>
+                <a class="a1" href="tel:450-445-4000" target="_blank">
+                  <span class="span3">450 445-4000</span>
+                </a>
+              </p>
+            </div>
+            <div class="facebook-parent">
+              <div class="facebook">
+                <img
+                  class="facebook-logo-secondary-1-icon"
+                  loading="lazy"
+                  alt=""
+                  src="./public/facebook-logo-secondary-1@2x.png"
+                />
+              </div>
+              <div class="instagram">
+                <img
+                  class="instagram-glyph-white-1-icon"
+                  loading="lazy"
+                  alt=""
+                  src="./public/instagram-glyph-white-1@2x.png"
+                />
+              </div>
+              <div class="linkedin">
+                <img
+                  class="li-in-bug-white-1-icon"
+                  loading="lazy"
+                  alt=""
+                  src="./public/liinbug-white-1@2x.png"
+                />
+              </div>
+              <div class="youtube">
+                <img
+                  class="yt-icon-mono-dark-1"
+                  loading="lazy"
+                  alt=""
+                  src="./public/yt-icon-mono-dark-1@2x.png"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="copyright-info">
+          <div class="copyright-decobec">
+            Copyright © Decobec inc | Site Map
+          </div>
+          <div class="licence-rbq">Licence RBQ : 5827-1669-01</div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
